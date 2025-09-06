@@ -1,0 +1,15 @@
+#cloud-config
+users:
+  - name: ubuntu # Benutzername
+    sudo: ALL=(ALL) NOPASSWD:ALL # Sudo-Rechte ohne Passwort
+    groups: users, admin # Zugehörige Gruppen
+    home: /home/ubuntu # Home-Verzeichnis
+    shell: /bin/bash # Standard-Shell
+    ssh_authorized_keys: # SSH-Schlüssel für sicheren Login
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9iyahcb3YJc1dwLmaz/lxSG2UlIGCtFXaaB6ze4gxsLA8vWtlGMZPUKDFBN8bYDJHz/Ha6i97XPH0wxXwcmq2lQeUHKVXnfvl4mbIWXgWk7fVVxaGDbSUtnakhsweE2el7TmplP7BhwZEXMfGlJjZPanMzTYT72I8JiIDZ5v8iFoaPkPP3+qfIvsvDpQ5ELw4NOvPEvwRZDLwEiXHCMV9kdyYBUnqzFEgkge+x/418E2d9jaOxYM9CCZ0BAJUwCNA7jyEcYrGiLRxEVi3ZKtShbAzrVbIFDXVc4hvvsS8s2cnViLd8wA+QLcP/msE9A7Mwod8F2IuC83SyrQv3/xF aws-key
+ssh_pwauth: false # Deaktiviert Passwort-Authentifizierung über SSH
+disable_root: false # Root-Account bleibt aktiv
+package_update: true # Führt Paketlisten-Update beim ersten Booten aus
+packages: # Automatisch zu installierende Pakete
+  - curl # Curl installieren
+  - wget # Wget installieren
