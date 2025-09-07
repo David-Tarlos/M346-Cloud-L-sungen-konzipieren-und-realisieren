@@ -7,9 +7,18 @@ users:
     shell: /bin/bash # Standard-Shell
     ssh_authorized_keys: # SSH-Schlüssel für sicheren Login
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC9iyahcb3YJc1dwLmaz/lxSG2UlIGCtFXaaB6ze4gxsLA8vWtlGMZPUKDFBN8bYDJHz/Ha6i97XPH0wxXwcmq2lQeUHKVXnfvl4mbIWXgWk7fVVxaGDbSUtnakhsweE2el7TmplP7BhwZEXMfGlJjZPanMzTYT72I8JiIDZ5v8iFoaPkPP3+qfIvsvDpQ5ELw4NOvPEvwRZDLwEiXHCMV9kdyYBUnqzFEgkge+x/418E2d9jaOxYM9CCZ0BAJUwCNA7jyEcYrGiLRxEVi3ZKtShbAzrVbIFDXVc4hvvsS8s2cnViLd8wA+QLcP/msE9A7Mwod8F2IuC83SyrQv3/xF aws-key
+      #Lehrer
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC0WGP1EZykEtv5YGC9nMiPFW3U3DmZNzKFO5nEu6uozEHh4jLZzPNHSrfFTuQ2GnRDSt+XbOtTLdcj26+iPNiFoFha42aCIzYjt6V8Z+SQ9pzF4jPPzxwXfDdkEWylgoNnZ+4MG1lNFqa8aO7F62tX0Yj5khjC0Bs7Mb2cHLx1XZaxJV6qSaulDuBbLYe8QUZXkMc7wmob3PM0kflfolR3LE7LResIHWa4j4FL6r5cQmFlDU2BDPpKMFMGUfRSFiUtaWBNXFOWHQBC2+uKmuMPYP4vJC9sBgqMvPN/X2KyemqdMvdKXnCfrzadHuSSJYEzD64Cve5Zl9yVvY4AqyBD aws-key
+
 ssh_pwauth: false # Deaktiviert Passwort-Authentifizierung über SSH
 disable_root: false # Root-Account bleibt aktiv
 package_update: true # Führt Paketlisten-Update beim ersten Booten aus
 packages: # Automatisch zu installierende Pakete
   - curl # Curl installieren
   - wget # Wget installieren
+  - mariadb-server
+
+runcmd:
+  - sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mysql/mariadb.conf.d/50-server.cnf
+  - systemctl restart mariadb
+  - mysql -sfu root -e "GRANT ALL ON *.* TO 'admin'@'%' IDENTIFIED BY '12345' WITH GRANT OPTION;"
