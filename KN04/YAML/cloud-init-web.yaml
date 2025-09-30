@@ -25,7 +25,7 @@ write_files:
   - path: /var/www/html/db.php
     content: |
       <?php
-      $servername = "172.31.24.225";  # Private IP der DB-Instanz eintragen
+      $servername = "172.31.80.30";  # Private IP der DB-Instanz eintragen
       $username = "admin";
       $password = "12345";
 
@@ -46,4 +46,3 @@ write_files:
 runcmd:
   - a2enconf adminer
   - systemctl restart apache2
-
