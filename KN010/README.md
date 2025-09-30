@@ -60,5 +60,5 @@
 - **Specs:** 4 GB RAM, 2 vCPU  
 - **Begründung:** Entspricht On-Premise-Datenbank, Speicherplatz ausreichend für 30 Benutzer, vollständig verwaltet, keine eigene VM nötig.
 
-## Backup & Speicher 
+## Backup und Speicher 
 - **Lösung:** Heroku Managed Postgres übernimmt Backups automatisch, kein separates Backup-Dyno nötig.
