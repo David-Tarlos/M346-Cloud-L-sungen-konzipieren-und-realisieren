@@ -54,12 +54,11 @@
 - **Begründung:** Geeignet für 30 Benutzer und kleine bis mittelgroße Apps; RAM kleiner als On-Premise, reicht aber für Standardbetrieb; kostengünstig und flexibel.
 
 ## Datenbank (Heroku Postgres)
-![Heroku Postgres](https://github.com/user-attachments/assets/3128e78b-7816-4879-9541-69a8c2882c3f)  
+![Heroku Postgres](https://github.com/user-attachments/assets/d8c9b30c-bff7-4cf6-89a6-69967a1afd62)  
 - **Dyno Type:** General Purpose 2CPU-4GB  
 - **Preis / Monat:** $80  
 - **Specs:** 4 GB RAM, 2 vCPU  
 - **Begründung:** Entspricht On-Premise-Datenbank, Speicherplatz ausreichend für 30 Benutzer, vollständig verwaltet, keine eigene VM nötig.
 
-## Backup & Speicher
-![Backup Übersicht](https://github.com/user-attachments/assets/d8c9b30c-bff7-4cf6-89a6-69967a1afd62)  
+## Backup & Speicher 
 - **Lösung:** Heroku Managed Postgres übernimmt Backups automatisch, kein separates Backup-Dyno nötig.
